@@ -1,4 +1,3 @@
-use assert_cmd::Command;
 use predicates::prelude::*;
 
 #[test]
@@ -26,7 +25,7 @@ fn recommend_contains_model_id() {
         "gpu_backend": "metal"
     });
 
-    let mut cmd = Command::cargo_bin("tokensmith").expect("binary exists");
+    let mut cmd = assert_cmd::cargo::cargo_bin_cmd!("tokensmith");
     cmd.env("TOKENSMITH_HOME", &temp_home);
     cmd.env("TOKENSMITH_TEST_PROFILE_JSON", profile.to_string());
     cmd.args(["recommend", "--task", "code", "--mode", "fast"])

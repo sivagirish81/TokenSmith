@@ -32,7 +32,7 @@ pub fn recommend(
             let threads = if let Some(perf) = hw.performance_cores {
                 perf
             } else {
-                (hw.logical_cores.saturating_sub(2)).max(1).min(16)
+                (hw.logical_cores.saturating_sub(2)).clamp(1, 16)
             };
             reasons.push(format!("threads set to {}", threads));
             reasons.push(format!("mode {} selected", mode.as_str()));

@@ -44,7 +44,7 @@ pub fn profile() -> Result<HardwareProfile> {
         .and_then(|v| v.parse::<u64>().ok())
         .unwrap_or_else(|| sys.total_memory());
 
-    let available_mem_bytes = Command::new("vm_stat").output().ok().and_then(|o| {
+    let available_mem_bytes = Command::new("vm_stat").output().ok().map(|o| {
         let text = String::from_utf8_lossy(&o.stdout);
         let page_size = text
             .lines()
@@ -58,7 +58,7 @@ pub fn profile() -> Result<HardwareProfile> {
         let speculative_pages = parse_vm_stat_pages(&text, "Pages speculative:");
         let purgeable_pages = parse_vm_stat_pages(&text, "Pages purgeable:");
         let reclaimable_pages = free_pages + inactive_pages + speculative_pages + purgeable_pages;
-        Some(reclaimable_pages * page_size)
+        reclaimable_pages * page_size
     });
 
     let arch = std::env::consts::ARCH.to_string();

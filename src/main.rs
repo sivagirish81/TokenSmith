@@ -177,6 +177,7 @@ async fn cmd_doctor(paths: &TokensmithPaths) -> Result<()> {
     Ok(())
 }
 
+#[allow(clippy::too_many_arguments)]
 async fn cmd_up(
     paths: &TokensmithPaths,
     config: &AppConfig,
@@ -390,7 +391,7 @@ fn resolve_selection_with_local_fallback(
         {
             let threads = profile
                 .performance_cores
-                .unwrap_or_else(|| (profile.logical_cores.saturating_sub(2)).max(1).min(16));
+                .unwrap_or_else(|| (profile.logical_cores.saturating_sub(2)).clamp(1, 16));
             reasons.push("fallback: using locally available model with task mismatch".to_string());
             let sel = selector::Selection {
                 model: m.clone(),
@@ -454,7 +455,7 @@ fn resolve_local_only_selection(
         {
             let threads = profile
                 .performance_cores
-                .unwrap_or_else(|| (profile.logical_cores.saturating_sub(2)).max(1).min(16));
+                .unwrap_or_else(|| (profile.logical_cores.saturating_sub(2)).clamp(1, 16));
             reasons.push("fallback: using locally available model with task mismatch".to_string());
             let sel = selector::Selection {
                 model: m.clone(),
@@ -716,22 +717,22 @@ fn install_llama_cpp(paths: &TokensmithPaths) -> Result<()> {
             println!("Installed llama-server at {}", path.display());
             return Ok(());
         }
-        return Err(anyhow!(
+        Err(anyhow!(
             "install completed but llama-server is still not discoverable in PATH"
-        ));
+        ))
     }
 
     #[cfg(target_os = "linux")]
     {
         println!("Automatic install is not implemented for Linux yet.");
         println!("Install llama.cpp and ensure `llama-server` is on PATH.");
-        return Ok(());
+        Ok(())
     }
 
     #[cfg(target_os = "windows")]
     {
         println!("Automatic install is not implemented for Windows yet.");
         println!("Install llama.cpp and ensure `llama-server.exe` is on PATH.");
-        return Ok(());
+        Ok(())
     }
 }

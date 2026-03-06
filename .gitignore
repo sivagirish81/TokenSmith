@@ -13,6 +13,8 @@
 .env
 .env.*
 !.env.example
+.envrc
+.direnv/
 
 # macOS
 .DS_Store
@@ -27,6 +29,7 @@
 coverage/
 *.profraw
 *.profdata
+.coverage*
 
 # Local runtime/state (if created in repo during dev)
 /.tokensmith/
@@ -42,3 +45,5 @@ coverage/
 # Misc local scratch
 *.tmp
 *.bak
+*.orig
+*.rej

@@ -52,7 +52,7 @@ pub fn terminate_pid(pid: u32, force_after: Duration) -> Result<()> {
                 return Err(anyhow!("failed to SIGKILL pid {pid}"));
             }
         }
-        return Ok(());
+        Ok(())
     }
 
     #[cfg(windows)]
@@ -63,6 +63,6 @@ pub fn terminate_pid(pid: u32, force_after: Duration) -> Result<()> {
         if !status.success() {
             return Err(anyhow!("taskkill failed for pid {pid}"));
         }
-        return Ok(());
+        Ok(())
     }
 }

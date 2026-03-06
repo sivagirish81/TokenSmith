@@ -7,18 +7,10 @@ use crate::{monitor::sample::MetricsSnapshot, optimizer::memory::MemoryConfig};
 
 use super::paths::TokensmithPaths;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct AppConfig {
     #[serde(default)]
     pub optimizer: MemoryConfig,
-}
-
-impl Default for AppConfig {
-    fn default() -> Self {
-        Self {
-            optimizer: MemoryConfig::default(),
-        }
-    }
 }
 
 impl AppConfig {

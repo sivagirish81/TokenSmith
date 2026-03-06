@@ -396,9 +396,7 @@ async fn maybe_proxy_chat_stream(
         ));
     }
 
-    let stream = resp
-        .bytes_stream()
-        .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e));
+    let stream = resp.bytes_stream().map_err(std::io::Error::other);
     let body = Body::from_stream(stream);
 
     let response = Response::builder()
@@ -429,9 +427,7 @@ async fn maybe_proxy_completion_stream(
         ));
     }
 
-    let stream = resp
-        .bytes_stream()
-        .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e));
+    let stream = resp.bytes_stream().map_err(std::io::Error::other);
     let body = Body::from_stream(stream);
 
     let response = Response::builder()
