@@ -29,8 +29,15 @@ impl MetricSampler for DefaultSampler {
         sys.refresh_memory();
 
         if let Some(proc_) = sys.process(Pid::from_u32(pid)) {
+            #[cfg(target_os = "macos")]
             let mut cpu = proc_.cpu_usage();
+            #[cfg(not(target_os = "macos"))]
+            let cpu = proc_.cpu_usage();
+
+            #[cfg(target_os = "macos")]
             let mut rss_bytes = proc_.memory();
+            #[cfg(not(target_os = "macos"))]
+            let rss_bytes = proc_.memory();
 
             #[cfg(target_os = "macos")]
             {

@@ -5,7 +5,7 @@ use crate::{
     profiler::types::HardwareProfile,
 };
 
-pub fn choose_model<'a>(registry: &'a Registry, task: Task) -> Vec<&'a ModelEntry> {
+pub fn choose_model(registry: &Registry, task: Task) -> Vec<&ModelEntry> {
     let task_str = task.to_string();
     let mut matches: Vec<&ModelEntry> = registry
         .models
