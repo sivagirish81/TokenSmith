@@ -1,0 +1,130 @@
+{
+  "models": [
+    {
+      "id": "qwen2.5-coder-7b-instruct",
+      "name": "Qwen2.5 Coder 7B Instruct",
+      "task": "code",
+      "size_class": "7b",
+      "format": "gguf",
+      "downloads": [
+        "https://huggingface.co/bartowski/Qwen2.5-Coder-7B-Instruct-GGUF/resolve/main/Qwen2.5-Coder-7B-Instruct-Q5_K_M.gguf?download=true"
+      ],
+      "sha256": null,
+      "quantizations": [
+        { "name": "q4_k_m", "approx_size_bytes": 4500000000 },
+        { "name": "q5_k_m", "approx_size_bytes": 5200000000 },
+        { "name": "q8_0", "approx_size_bytes": 7800000000 }
+      ],
+      "default_context": 8192,
+      "max_context": 32768
+    },
+    {
+      "id": "qwen2.5-coder-14b-instruct",
+      "name": "Qwen2.5 Coder 14B Instruct",
+      "task": "code",
+      "size_class": "14b",
+      "format": "gguf",
+      "downloads": [
+        "https://huggingface.co/bartowski/Qwen2.5-Coder-14B-Instruct-GGUF/resolve/main/Qwen2.5-Coder-14B-Instruct-Q5_K_M.gguf?download=true"
+      ],
+      "sha256": null,
+      "quantizations": [
+        { "name": "q4_k_m", "approx_size_bytes": 9000000000 },
+        { "name": "q5_k_m", "approx_size_bytes": 10200000000 },
+        { "name": "q8_0", "approx_size_bytes": 15000000000 }
+      ],
+      "default_context": 8192,
+      "max_context": 32768
+    },
+    {
+      "id": "deepseek-coder-6.7b-instruct",
+      "name": "DeepSeek Coder 6.7B Instruct",
+      "task": "code",
+      "size_class": "7b",
+      "format": "gguf",
+      "downloads": [
+        "https://huggingface.co/TheBloke/deepseek-coder-6.7b-instruct-GGUF/resolve/main/deepseek-coder-6.7b-instruct.Q5_K_M.gguf?download=true"
+      ],
+      "sha256": null,
+      "quantizations": [
+        { "name": "q4_k_m", "approx_size_bytes": 4200000000 },
+        { "name": "q5_k_m", "approx_size_bytes": 5000000000 },
+        { "name": "q8_0", "approx_size_bytes": 7200000000 }
+      ],
+      "default_context": 8192,
+      "max_context": 16384
+    },
+    {
+      "id": "phi-3-mini-4k-instruct",
+      "name": "Phi-3 Mini 3.8B Instruct",
+      "task": "chat",
+      "size_class": "4b",
+      "format": "gguf",
+      "downloads": [
+        "https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct.Q5_K_M.gguf?download=true"
+      ],
+      "sha256": null,
+      "quantizations": [
+        { "name": "q4_k_m", "approx_size_bytes": 2400000000 },
+        { "name": "q5_k_m", "approx_size_bytes": 3000000000 },
+        { "name": "q8_0", "approx_size_bytes": 4200000000 }
+      ],
+      "default_context": 4096,
+      "max_context": 4096
+    },
+    {
+      "id": "qwen2.5-3b-instruct",
+      "name": "Qwen2.5 3B Instruct",
+      "task": "chat",
+      "size_class": "3b",
+      "format": "gguf",
+      "downloads": [
+        "https://huggingface.co/bartowski/Qwen2.5-3B-Instruct-GGUF/resolve/main/Qwen2.5-3B-Instruct-Q5_K_M.gguf?download=true"
+      ],
+      "sha256": null,
+      "quantizations": [
+        { "name": "q4_k_m", "approx_size_bytes": 1800000000 },
+        { "name": "q5_k_m", "approx_size_bytes": 2200000000 },
+        { "name": "q8_0", "approx_size_bytes": 3200000000 }
+      ],
+      "default_context": 8192,
+      "max_context": 32768
+    },
+    {
+      "id": "qwen2.5-1.5b-instruct",
+      "name": "Qwen2.5 1.5B Instruct",
+      "task": "chat",
+      "size_class": "1.5b",
+      "format": "gguf",
+      "downloads": [
+        "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/Qwen2.5-1.5B-Instruct-Q5_K_M.gguf?download=true"
+      ],
+      "sha256": null,
+      "quantizations": [
+        { "name": "q4_k_m", "approx_size_bytes": 950000000 },
+        { "name": "q5_k_m", "approx_size_bytes": 1200000000 },
+        { "name": "q8_0", "approx_size_bytes": 1800000000 }
+      ],
+      "default_context": 8192,
+      "max_context": 32768
+    },
+    {
+      "id": "llama-3.1-8b-instruct",
+      "name": "Llama 3.1 8B Instruct",
+      "task": "chat",
+      "size_class": "8b",
+      "format": "gguf",
+      "downloads": [
+        "https://huggingface.co/tensorblock/Llama-3.1-8B-Instruct-GGUF/resolve/main/Llama-3.1-8B-Instruct-Q5_K_M.gguf?download=true"
+      ],
+      "sha256": null,
+      "quantizations": [
+        { "name": "q4_k_m", "approx_size_bytes": 5000000000 },
+        { "name": "q5_k_m", "approx_size_bytes": 6000000000 },
+        { "name": "q8_0", "approx_size_bytes": 9000000000 }
+      ],
+      "default_context": 8192,
+      "max_context": 32768
+    }
+  ]
+}

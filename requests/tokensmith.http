@@ -1,0 +1,25 @@
+@baseUrl = http://127.0.0.1:8000/v1
+@apiKey = local
+
+### Chat Completions
+POST {{baseUrl}}/chat/completions
+Content-Type: application/json
+Authorization: Bearer {{apiKey}}
+
+{
+  "model": "local",
+  "messages": [
+    { "role": "system", "content": "You are a concise coding assistant." },
+    { "role": "user", "content": "Write a Rust function that deduplicates a Vec<String>." }
+  ]
+}
+
+### Completions
+POST {{baseUrl}}/completions
+Content-Type: application/json
+Authorization: Bearer {{apiKey}}
+
+{
+  "model": "local",
+  "prompt": "Explain ownership in Rust in 3 bullets."
+}
