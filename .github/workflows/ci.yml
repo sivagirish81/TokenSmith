@@ -1,6 +1,8 @@
 name: CI
 
 on:
+  pull_request:
+    branches: ["main"]
   push:
     branches: ["main"]
 
@@ -8,7 +10,6 @@ jobs:
   test:
     name: fmt-clippy-test (ubuntu)
     runs-on: ubuntu-latest
-    if: github.event.repository.private == false
 
     steps:
       - name: Checkout
